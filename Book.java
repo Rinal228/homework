@@ -4,8 +4,8 @@ public class Book{
 	private int year;
 	private boolean isAvailable;
 	private int pageCount;
-	final MAX_YEAR = 2025;
-	private static int totalBooks;
+	private final MAX_YEAR = 2025;
+	private static int totalBooks = 0;
 
 	public Book(){
 		this.title = "1984";
@@ -13,6 +13,7 @@ public class Book{
 		this.year = 1984;
 		this.isAvailable = true;
 		this.pageCount = 1984;
+		this.totalBooks += 1;
 	}
 	public Book(String title, String author, int year) {
 		this.title = title;
@@ -20,6 +21,7 @@ public class Book{
 		this.year = year;
 		this.isAvailable = true;
 		this.pageCount = 1984;
+		this.totalBooks += 1;
 	}
 	public Book(String title, String author, int year, boolean isAvailable, int pageCount) {
 		this.title = title;
@@ -27,11 +29,12 @@ public class Book{
 		this.year = year;
 		this.isAvailable = isAvailable;
 		this.pageCount = pageCount;
+		this.totalBooks += 1;
 	}
 
 	public void displayInfo(boolean detailed){
 		if(detailed) {
-			System.out.println(title + " " + author + " " + year + " " + isAvailable + " " + pageCount);
+			displayInfo();
 		} else {
 			System.out.println(title + " " + author + " " + year);
 		}
@@ -44,7 +47,7 @@ public class Book{
 		this.isAvailable = false;
 	}
 	public void borrowBook(String borrowerName){
-		this.isAvailable = false;
+		borrowBook();
 		System.out.println(borrowerName);
 	}
 	public void returnBook(){
@@ -93,7 +96,7 @@ public class Book{
 		}
 		
 	}
-	public void getIsAvailable(boolean isAvailable){
+	public void setIsAvailable(boolean isAvailable){
 		this.isAvailable = isAvailable;
 	}
 	public void setPageCount(int pageCount){
